@@ -148,18 +148,9 @@
       
         <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>实际上很简单 一看就会</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &#39;a&#39;</span><br><span class="line">输出: &#39;A&#39;</span><br><span class="line">输入: &#39;b&#39;</span><br><span class="line">输出: &#39;B&#39;</span><br></pre></td></tr></table></figure>
-
-<h1 id="那么发生了什么"><a href="#那么发生了什么" class="headerlink" title="那么发生了什么"></a>那么发生了什么</h1><p>刚刚开始写的时候用的是cpp的老思路，先把输入的字符转换成为ascii码，之后减去32就可以了<br>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param character: a character</span></span><br><span class="line"><span class="string">    @return: a character</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowercaseToUppercase</span><span class="params">(self, character)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        <span class="keyword">return</span> chr(ord(character) - <span class="number">32</span>)</span><br></pre></td></tr></table></figure>
-<p>但是结果惨不忍睹<br><img src="/imgaes/LintCode_145/firstCode.png" alt="只打败了3.2%"><br>之后想了想用一句话实现</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param character: a character</span></span><br><span class="line"><span class="string">    @return: a character</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowercaseToUppercase</span><span class="params">(self, character)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        <span class="keyword">return</span> character.upper()</span><br></pre></td></tr></table></figure>
-<p>第二次的结果就很靓仔<br><img src="/imgaes/LintCode_145/secondCode.png" alt="100% beat!"></p>
-<h1 id="那么…-为什么？"><a href="#那么…-为什么？" class="headerlink" title="那么….为什么？"></a>那么….为什么？</h1><p>找了一下并没有找到很详细的答案，下面是我的猜想：<br>对于第一种解法 解法中的核心是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> chr(ord(character) - <span class="number">32</span>)</span><br></pre></td></tr></table></figure>
-<p>其中运用到三个过程：<br>求ascii码–移位运算–输出结果<br>对于第二种，其中的核心方法是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> character.upper()</span><br></pre></td></tr></table></figure>
-<p>可能采用了内建的dict？</p>
-
+        
+          <a class="article-more-a" href="/2020/01/28/LintCode-145/#more">查看全部 >></a>
+        
       
 
       
@@ -180,10 +171,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/28/LintCode-145/">展开全文 >></a>
-        </p>
       
 
       
@@ -234,16 +221,9 @@
       
         <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">offset &gt;&#x3D; 0</span><br><span class="line">the length of str &gt;&#x3D; 0</span><br><span class="line">Make changes on the original input data</span><br></pre></td></tr></table></figure>
-
-<h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><p>首先第一眼看上去是个很简单的考察数组基础使用的题目，但是仔细一看就会发现猫腻，首先你会发现题目中给出的字眼“原地”<br>原地是什么意思？就是不使用任何其余的空间来旋转这个字符串<br>tips:可以用到python的常用trick</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list[a],list[b] = list[b],list[a]</span><br></pre></td></tr></table></figure>
-<h1 id="除了这个呢？"><a href="#除了这个呢？" class="headerlink" title="除了这个呢？"></a>除了这个呢？</h1><p>仅仅用这个去处理原有的字符串似乎是太偷懒了，而且时间复杂度很高，对于一个长度为n的字符串，如果按照最基础的方式移动，那么就一共需要移动n次<br>对于这种移动字符串的问题 可以采用三步旋转法来实现。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">对于字符串abcdefg offset &#x3D; 3</span><br><span class="line">首先翻转头，得到</span><br><span class="line">dcbaefg</span><br><span class="line">然后翻转尾，得到</span><br><span class="line">dcbagfe</span><br><span class="line">最后翻转整体，得到</span><br><span class="line">efgabcd</span><br><span class="line">即为正确答案</span><br></pre></td></tr></table></figure>
-
-<h1 id="Talk-is-cheap-show-me-the-code"><a href="#Talk-is-cheap-show-me-the-code" class="headerlink" title="Talk is cheap,show me the code"></a>Talk is cheap,show me the code</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param str: An array of char</span></span><br><span class="line"><span class="string">    @param offset: An integer</span></span><br><span class="line"><span class="string">    @return: nothing</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">rotateString</span><span class="params">(self, str, offset)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        <span class="keyword">if</span> str <span class="keyword">is</span> <span class="literal">None</span> <span class="keyword">or</span> len(str) == <span class="number">0</span>:</span><br><span class="line">            <span class="keyword">return</span></span><br><span class="line">        <span class="keyword">if</span> len(str) &gt; <span class="number">0</span>:</span><br><span class="line">            offset %= len(str)</span><br><span class="line">        self.reverse(str, <span class="number">0</span>, len(str)-offset<span class="number">-1</span>)</span><br><span class="line">        self.reverse(str, len(str)-offset, len(str)<span class="number">-1</span>)</span><br><span class="line">        self.reverse(str, <span class="number">0</span>, len(str)<span class="number">-1</span>)</span><br><span class="line">        <span class="keyword">return</span> str</span><br><span class="line">        </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reverse</span><span class="params">(self, str, start, end)</span>:</span></span><br><span class="line">        <span class="keyword">while</span> start &lt; end:</span><br><span class="line">            str[start], str[end] = str[end], str[start]</span><br><span class="line">            start += <span class="number">1</span> </span><br><span class="line">            end -= <span class="number">1</span></span><br></pre></td></tr></table></figure>
-
-<h1 id="其他"><a href="#其他" class="headerlink" title="其他"></a>其他</h1><p>其实刚刚开始我一直使用的是最简单的reverse，但是调用一直不成功，最后想来想去加了个self就成功了<br>看来还是不够面向对象</p>
-
+        
+          <a class="article-more-a" href="/2020/01/27/LintCode_8/#more">查看全部 >></a>
+        
       
 
       
@@ -264,10 +244,6 @@
 
       
 
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2020/01/27/LintCode_8/">展开全文 >></a>
-        </p>
       
 
       

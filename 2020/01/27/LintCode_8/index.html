@@ -8,15 +8,15 @@
   <link rel="dns-prefetch" href="http://yoursite.com">
   <title>旋转字符串 | 一个放笔记的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目要求给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。 123offset &gt;&#x3D; 0the length of str &gt;&#x3D; 0Make changes on the original input data  题目分析首先第一眼看上去是个很简单的考察数组基础使用的题目，但是仔细一看就会发现猫腻，首先你会发现题目中给出的">
+  <meta name="description" content="题目要求给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。 123offset &gt;&#x3D; 0the length of str &gt;&#x3D; 0Make changes on the original input data">
 <meta property="og:type" content="article">
 <meta property="og:title" content="旋转字符串">
 <meta property="og:url" content="http://yoursite.com/2020/01/27/LintCode_8/index.html">
 <meta property="og:site_name" content="一个放笔记的地方">
-<meta property="og:description" content="题目要求给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。 123offset &gt;&#x3D; 0the length of str &gt;&#x3D; 0Make changes on the original input data  题目分析首先第一眼看上去是个很简单的考察数组基础使用的题目，但是仔细一看就会发现猫腻，首先你会发现题目中给出的">
+<meta property="og:description" content="题目要求给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。 123offset &gt;&#x3D; 0the length of str &gt;&#x3D; 0Make changes on the original input data">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2020-01-27T01:50:48.000Z">
-<meta property="article:modified_time" content="2020-01-27T02:03:40.574Z">
+<meta property="article:modified_time" content="2020-01-29T03:43:41.006Z">
 <meta property="article:author" content="Apolinz">
 <meta property="article:tag" content="LintCode">
 <meta name="twitter:card" content="summary">
@@ -152,6 +152,8 @@
         <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">offset &gt;&#x3D; 0</span><br><span class="line">the length of str &gt;&#x3D; 0</span><br><span class="line">Make changes on the original input data</span><br></pre></td></tr></table></figure>
 
+<a id="more"></a>
+
 <h1 id="题目分析"><a href="#题目分析" class="headerlink" title="题目分析"></a>题目分析</h1><p>首先第一眼看上去是个很简单的考察数组基础使用的题目，但是仔细一看就会发现猫腻，首先你会发现题目中给出的字眼“原地”<br>原地是什么意思？就是不使用任何其余的空间来旋转这个字符串<br>tips:可以用到python的常用trick</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list[a],list[b] = list[b],list[a]</span><br></pre></td></tr></table></figure>
 <h1 id="除了这个呢？"><a href="#除了这个呢？" class="headerlink" title="除了这个呢？"></a>除了这个呢？</h1><p>仅仅用这个去处理原有的字符串似乎是太偷懒了，而且时间复杂度很高，对于一个长度为n的字符串，如果按照最基础的方式移动，那么就一共需要移动n次<br>对于这种移动字符串的问题 可以采用三步旋转法来实现。</p>
@@ -163,27 +165,6 @@
 
       
 
-      
-        <div class="page-reward">
-          <a href="javascript:;" class="page-reward-btn tooltip-top">
-            <div class="tooltip tooltip-east">
-            <span class="tooltip-item">
-              赏
-            </span>
-            <span class="tooltip-content">
-              <span class="tooltip-text">
-                <span class="tooltip-inner">
-                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
-                  <div class="reward-box">
-                    
-                    
-                  </div>
-                </span>
-              </span>
-            </span>
-          </div>
-          </a>
-        </div>
       
     </div>
     <div class="article-info article-info-index">
