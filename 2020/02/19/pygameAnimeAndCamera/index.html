@@ -6,15 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Archives | 一个放笔记的地方</title>
+  <title>pygame做的简单程序&amp;&amp;三维向量与相机景深 | 一个放笔记的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个放笔记的地方">
-<meta property="og:url" content="http://yoursite.com/archives/index.html">
+  <meta name="description" content="pygame画星星">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pygame做的简单程序&amp;&amp;三维向量与相机景深">
+<meta property="og:url" content="http://yoursite.com/2020/02/19/pygameAnimeAndCamera/index.html">
 <meta property="og:site_name" content="一个放笔记的地方">
+<meta property="og:description" content="pygame画星星">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/images/pygameAnimeAndCamera/star.gif">
+<meta property="og:image" content="http://yoursite.com/images/pygameAnimeAndCamera/Cube.gif">
+<meta property="article:published_time" content="2020-02-19T09:32:44.000Z">
+<meta property="article:modified_time" content="2020-02-19T10:17:13.158Z">
 <meta property="article:author" content="Apolinz">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/pygameAnimeAndCamera/star.gif">
   
     <link rel="alternative" href="/atom.xml" title="一个放笔记的地方" type="application/atom+xml">
   
@@ -124,205 +131,151 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-pygameAnimeAndCamera" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
   
+    <h1 class="article-title" itemprop="name">
+      pygame做的简单程序&amp;&amp;三维向量与相机景深
+    </h1>
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2020" class="archive-year">2020</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/19/pygameAnimeAndCamera/" class="archive-article-date">
+
+        
+        <a href="/2020/02/19/pygameAnimeAndCamera/" class="archive-article-date">
   	<time datetime="2020-02-19T09:32:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/19/pygameAnimeAndCamera/">pygame做的简单程序&amp;&amp;三维向量与相机景深</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="pygame画星星"><a href="#pygame画星星" class="headerlink" title="pygame画星星"></a>pygame画星星</h1><a id="more"></a>
 
-        <div class="article-info info-on-right">
-          
-          
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">from</span> pygame.locals <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Star</span><span class="params">(object)</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, x, y, speed)</span>:</span></span><br><span class="line"></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        self.speed = speed</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    pygame.init()</span><br><span class="line">    screen = pygame.display.set_mode((<span class="number">640</span>, <span class="number">480</span>)) <span class="comment">#, FULLSCREEN)</span></span><br><span class="line">    stars = []</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 在第一帧，画上一些星星</span></span><br><span class="line">    <span class="keyword">for</span> n <span class="keyword">in</span> range(<span class="number">200</span>):</span><br><span class="line"></span><br><span class="line">        x = float(randint(<span class="number">0</span>, <span class="number">639</span>))</span><br><span class="line">        y = float(randint(<span class="number">0</span>, <span class="number">479</span>))</span><br><span class="line">        speed = float(randint(<span class="number">10</span>, <span class="number">300</span>))</span><br><span class="line">        stars.append( Star(x, y, speed) )</span><br><span class="line"></span><br><span class="line">    clock = pygame.time.Clock()</span><br><span class="line"></span><br><span class="line">    white = (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():</span><br><span class="line">            <span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line">            <span class="keyword">if</span> event.type == KEYDOWN:</span><br><span class="line">                <span class="keyword">return</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 增加一颗新的星星</span></span><br><span class="line">        y = float(randint(<span class="number">0</span>, <span class="number">479</span>))</span><br><span class="line">        speed = float(randint(<span class="number">10</span>, <span class="number">300</span>))</span><br><span class="line">        star = Star(<span class="number">640.</span>, y, speed)</span><br><span class="line">        stars.append(star)</span><br><span class="line"></span><br><span class="line">        time_passed = clock.tick()</span><br><span class="line">        time_passed_seconds = time_passed / <span class="number">1000.</span></span><br><span class="line"></span><br><span class="line">        screen.fill((<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 绘制所有的星</span></span><br><span class="line">        <span class="keyword">for</span> star <span class="keyword">in</span> stars:</span><br><span class="line"></span><br><span class="line">            new_x = star.x - time_passed_seconds * star.speed</span><br><span class="line">            pygame.draw.aaline(screen, white, (new_x, star.y), (star.x+<span class="number">1.</span>, star.y))</span><br><span class="line">            star.x = new_x</span><br><span class="line"></span><br><span class="line">        <span class="function"><span class="keyword">def</span> <span class="title">on_screen</span><span class="params">(star)</span>:</span></span><br><span class="line">            <span class="keyword">if</span> star.x &gt; <span class="number">0</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">True</span></span><br><span class="line">            <span class="keyword">else</span>:</span><br><span class="line">                <span class="keyword">return</span> <span class="literal">False</span></span><br><span class="line"></span><br><span class="line">        <span class="comment"># 星星跑出了画面，就删了它</span></span><br><span class="line">        stars = list(filter(on_screen, stars))</span><br><span class="line">        pygame.display.update()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+<p><img src="/images/pygameAnimeAndCamera/star.gif" alt=" "></p>
+<h2 id="我学到了什么：Fps-amp-amp-Fliter"><a href="#我学到了什么：Fps-amp-amp-Fliter" class="headerlink" title="我学到了什么：Fps&amp;&amp;Fliter"></a>我学到了什么：Fps&amp;&amp;Fliter</h2><p>首先对于一个游戏来说，fps是衡量在一秒内游戏画面变化的多少，也就是在不同的机器上，机器所表现出来的fps是不一定一样的。<br>所以为了让画的星星在不同的机器上都能够运行出同样的效果，所以我们需要使用一个在不同机器上面都能稳定运行的指标，也就是时间</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">clock = pygame.time.Clock()</span><br></pre></td></tr></table></figure>
+<p>这就是Clock()函数在整个程序当中的作用，也就是仅需要星星在规定的时间内移动同样的举例，就可以了。</p>
+<p>而至于fliter，同py2不同的是，在py3中，fliter返回的是一个fliter对象，在程序中我使用了fliter，其中如果是这样写</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">stars = list(filter(on_screen, stars))</span><br></pre></td></tr></table></figure>
+<p>这样写的话，那么在一次的更新迭代之后，原来的stars列表则会变成一个fliter对象，而不是py2中的返回列表</p>
+<p>#三维向量与相机景深<br>这个没什么好说的 直接上代码来的还更加清晰<br>三维向量：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector3</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,x = <span class="number">0.0</span>,y = <span class="number">0.0</span>,z = <span class="number">0.0</span>)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">        self.z = z</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'(%s,%s,%s)'</span>%(self.x,self.y,self.z)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span><span class="params">(self,vec)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector3(self.x + vec.x,self.y + vec.y,self.z + vec.z)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__sub__</span><span class="params">(self,vec)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector3(self.x - vec.x,self.y - vec.y,self.z - vec.z)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__mul__</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector3(self.x * num , self.y * num,self.z * num)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__truediv__</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector3(self.x/num,self.y/num,self.z/num)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> math.sqrt(self.x**<span class="number">2</span> + self.y**<span class="number">2</span>+self.z**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">normalize</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector3(self.x/(self.length() + <span class="number">1</span>),self.y/(self.length() + <span class="number">1</span>),self.z/(self.length() + <span class="number">1</span>))</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getDistance</span><span class="params">(self,vec)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> math.sqrt((self.x - vec.x)**<span class="number">2</span> + (self.y - vec.y)**<span class="number">2</span> + (self.z - vec.z)**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">VecMulVec</span><span class="params">(cls,p1,p2)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(p1.x * p2.x,p1.y * p2.y,p1.z * p2.z)</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pointToVector</span><span class="params">(cls,p1,p2)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(p2[<span class="number">0</span>] - p1[<span class="number">0</span>],p2[<span class="number">1</span>] - p1[<span class="number">1</span>],p2[<span class="number">2</span>] - p1[<span class="number">2</span>])</span><br></pre></td></tr></table></figure>
 
+<p>相机景深：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> pygame.locals <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Vector <span class="keyword">import</span> Vector3</span><br><span class="line"><span class="keyword">from</span> math <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> random <span class="keyword">import</span> randint</span><br><span class="line"></span><br><span class="line">SCREEN_SIZE =  (<span class="number">640</span>, <span class="number">480</span>)</span><br><span class="line">CUBE_SIZE = <span class="number">300</span></span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">calculate_viewing_distance</span><span class="params">(fov, screen_width)</span>:</span></span><br><span class="line">    d = (screen_width/<span class="number">2.0</span>) / tan(fov/<span class="number">2.0</span>)</span><br><span class="line">    <span class="keyword">return</span> d</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">run</span><span class="params">()</span>:</span></span><br><span class="line">    pygame.init()</span><br><span class="line">    screen = pygame.display.set_mode(SCREEN_SIZE, <span class="number">0</span>)</span><br><span class="line"></span><br><span class="line">    default_font = pygame.font.get_default_font()</span><br><span class="line">    font = pygame.font.SysFont(default_font, <span class="number">24</span>)</span><br><span class="line"></span><br><span class="line">    ball = pygame.image.load(os.path.join(<span class="string">'.\image'</span>,<span class="string">"ball.png"</span>)).convert_alpha()</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 3D points</span></span><br><span class="line">    points = []</span><br><span class="line"></span><br><span class="line">    fov = <span class="number">90.</span> <span class="comment"># Field of view</span></span><br><span class="line">    viewing_distance = calculate_viewing_distance(radians(fov), SCREEN_SIZE[<span class="number">0</span>])</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 边沿的一系列点</span></span><br><span class="line">    <span class="keyword">for</span> x <span class="keyword">in</span> range(<span class="number">0</span>, CUBE_SIZE+<span class="number">1</span>, <span class="number">20</span>):</span><br><span class="line">        edge_x = x == <span class="number">0</span> <span class="keyword">or</span> x == CUBE_SIZE</span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> y <span class="keyword">in</span> range(<span class="number">0</span>, CUBE_SIZE+<span class="number">1</span>, <span class="number">20</span>):</span><br><span class="line">            edge_y = y == <span class="number">0</span> <span class="keyword">or</span> y == CUBE_SIZE</span><br><span class="line"></span><br><span class="line">            <span class="keyword">for</span> z <span class="keyword">in</span> range(<span class="number">0</span>, CUBE_SIZE+<span class="number">1</span>, <span class="number">20</span>):</span><br><span class="line">                edge_z = z == <span class="number">0</span> <span class="keyword">or</span> z == CUBE_SIZE</span><br><span class="line"></span><br><span class="line">                <span class="keyword">if</span> sum((edge_x, edge_y, edge_z)) &gt;= <span class="number">2</span>:</span><br><span class="line"></span><br><span class="line">                    point_x = float(x) - CUBE_SIZE/<span class="number">2</span></span><br><span class="line">                    point_y = float(y) - CUBE_SIZE/<span class="number">2</span></span><br><span class="line">                    point_z = float(z) - CUBE_SIZE/<span class="number">2</span></span><br><span class="line"></span><br><span class="line">                    points.append(Vector3(point_x, point_y, point_z))</span><br><span class="line"></span><br><span class="line">    <span class="comment"># 以z序存储，类似于css中的z-index</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">point_z</span><span class="params">(point)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> point.z</span><br><span class="line">    points.sort(key=point_z, reverse=<span class="literal">True</span>)</span><br><span class="line"></span><br><span class="line">    center_x, center_y = SCREEN_SIZE</span><br><span class="line">    center_x /= <span class="number">2</span></span><br><span class="line">    center_y /= <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    ball_w, ball_h = ball.get_size()</span><br><span class="line">    ball_center_x = ball_w / <span class="number">2</span></span><br><span class="line">    ball_center_y = ball_h / <span class="number">2</span></span><br><span class="line"></span><br><span class="line">    camera_position = Vector3(<span class="number">0.0</span>, <span class="number">0.0</span>, <span class="number">-700.</span>)</span><br><span class="line">    camera_speed = Vector3(<span class="number">300.0</span>, <span class="number">300.0</span>, <span class="number">300.0</span>)</span><br><span class="line"></span><br><span class="line">    clock = pygame.time.Clock()</span><br><span class="line"></span><br><span class="line">    <span class="keyword">while</span> <span class="literal">True</span>:        </span><br><span class="line"></span><br><span class="line">        <span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():</span><br><span class="line">            <span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">                <span class="keyword">return</span>            </span><br><span class="line"></span><br><span class="line">        screen.fill((<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>))</span><br><span class="line"></span><br><span class="line">        pressed_keys = pygame.key.get_pressed()</span><br><span class="line"></span><br><span class="line">        time_passed = clock.tick()</span><br><span class="line">        time_passed_seconds = time_passed / <span class="number">1000.</span></span><br><span class="line"></span><br><span class="line">        direction = Vector3()</span><br><span class="line">        <span class="keyword">if</span> pressed_keys[K_LEFT]:</span><br><span class="line">            direction.x = <span class="number">-1.0</span></span><br><span class="line">        <span class="keyword">elif</span> pressed_keys[K_RIGHT]:</span><br><span class="line">            direction.x = +<span class="number">1.0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pressed_keys[K_UP]:</span><br><span class="line">            direction.y = +<span class="number">1.0</span></span><br><span class="line">        <span class="keyword">elif</span> pressed_keys[K_DOWN]:</span><br><span class="line">            direction.y = <span class="number">-1.0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pressed_keys[K_q]:</span><br><span class="line">            direction.z = +<span class="number">1.0</span></span><br><span class="line">        <span class="keyword">elif</span> pressed_keys[K_a]:</span><br><span class="line">            direction.z = <span class="number">-1.0</span></span><br><span class="line"></span><br><span class="line">        <span class="keyword">if</span> pressed_keys[K_w]:</span><br><span class="line">            fov = min(<span class="number">179.</span>, fov+<span class="number">1.</span>)</span><br><span class="line">            w = SCREEN_SIZE[<span class="number">0</span>]</span><br><span class="line">            viewing_distance = calculate_viewing_distance(radians(fov), w)</span><br><span class="line">        <span class="keyword">elif</span> pressed_keys[K_s]:</span><br><span class="line">            fov = max(<span class="number">1.</span>, fov<span class="number">-1.</span>)</span><br><span class="line">            w = SCREEN_SIZE[<span class="number">0</span>]</span><br><span class="line">            viewing_distance = calculate_viewing_distance(radians(fov), w)</span><br><span class="line"></span><br><span class="line">        camera_position += Vector3.VecMulVec(direction,camera_speed) * time_passed_seconds       </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 绘制点</span></span><br><span class="line">        <span class="keyword">for</span> point <span class="keyword">in</span> points:</span><br><span class="line"></span><br><span class="line">            x, y, z = point.x - camera_position.x,point.y - camera_position.y,point.z - camera_position.z</span><br><span class="line"></span><br><span class="line">            <span class="keyword">if</span> z &gt; <span class="number">0</span>:</span><br><span class="line">                x =  x * viewing_distance / z</span><br><span class="line">                y = -y * viewing_distance / z</span><br><span class="line">                x += center_x</span><br><span class="line">                y += center_y</span><br><span class="line">                screen.blit(ball, (x-ball_center_x, y-ball_center_y))</span><br><span class="line"></span><br><span class="line">        <span class="comment"># 绘制表</span></span><br><span class="line">        diagram_width = SCREEN_SIZE[<span class="number">0</span>] / <span class="number">4</span></span><br><span class="line">        col = (<span class="number">50</span>, <span class="number">255</span>, <span class="number">50</span>)</span><br><span class="line">        diagram_points = []</span><br><span class="line">        diagram_points.append( (diagram_width/<span class="number">2</span>, <span class="number">100</span>+viewing_distance/<span class="number">4</span>) )</span><br><span class="line">        diagram_points.append( (<span class="number">0</span>, <span class="number">100</span>) )</span><br><span class="line">        diagram_points.append( (diagram_width, <span class="number">100</span>) )</span><br><span class="line">        diagram_points.append( (diagram_width/<span class="number">2</span>, <span class="number">100</span>+viewing_distance/<span class="number">4</span>) )</span><br><span class="line">        diagram_points.append( (diagram_width/<span class="number">2</span>, <span class="number">100</span>) )</span><br><span class="line">        pygame.draw.lines(screen, col, <span class="literal">False</span>, diagram_points, <span class="number">2</span>)        </span><br><span class="line"></span><br><span class="line">        <span class="comment"># 绘制文字</span></span><br><span class="line">        white = (<span class="number">255</span>, <span class="number">255</span>, <span class="number">255</span>)</span><br><span class="line">        cam_text = font.render(<span class="string">"camera = "</span>+str(camera_position), <span class="literal">True</span>, white)</span><br><span class="line">        screen.blit(cam_text, (<span class="number">5</span>, <span class="number">5</span>))</span><br><span class="line">        fov_text = font.render(<span class="string">"field of view = %i"</span>%int(fov), <span class="literal">True</span>, white)</span><br><span class="line">        screen.blit(fov_text, (<span class="number">5</span>, <span class="number">35</span>))</span><br><span class="line">        txt = <span class="string">"viewing distance = %.3f"</span>%viewing_distance</span><br><span class="line">        d_text = font.render(txt, <span class="literal">True</span>, white)</span><br><span class="line">        screen.blit(d_text, (<span class="number">5</span>, <span class="number">65</span>))</span><br><span class="line"></span><br><span class="line">        pygame.display.update()</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    run()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pygameAnimeAndCamera/Cube.gif" alt=" "></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/19/pygameAnimeAndCamera/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/13/pygameVector/" class="archive-article-date">
-  	<time datetime="2020-02-13T06:59:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2020/02/13/pygameVector/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">&#39;python实现vector基础数学库与pygame基础动画&#39;</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
+        
+        
+    </div>
+</aside>
+
+
+
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/13/pygameVector/">&#39;python实现vector基础数学库与pygame基础动画&#39;</a>
-    </h1>
+  
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pygame</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/02/09/LintCode-283/" class="archive-article-date">
-  	<time datetime="2020-02-09T12:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/02/09/LintCode-283/">比较大小数</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/28/LintCode-145/" class="archive-article-date">
-  	<time datetime="2020-01-28T13:04:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/28/LintCode-145/">大小写转换</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2020/01/27/LintCode_8/" class="archive-article-date">
-  	<time datetime="2020-01-27T01:50:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-27</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2020/01/27/LintCode_8/">旋转字符串</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
-
-    
 
 
           </div>
@@ -345,8 +298,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
