@@ -6,23 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>大小写转换 | 一个放笔记的地方</title>
+  <title>《精进》读书笔记 | 一个放笔记的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="题目要求实际上很简单 一看就会 1234输入: &#39;a&#39;输出: &#39;A&#39;输入: &#39;b&#39;输出: &#39;B&#39;">
+  <meta name="description" content="在家里抽了几天把很早一直想看的一本书《精进：如何成为很厉害的人看完了》">
 <meta property="og:type" content="article">
-<meta property="og:title" content="大小写转换">
-<meta property="og:url" content="http://yoursite.com/2020/01/28/LintCode-145/index.html">
+<meta property="og:title" content="《精进》读书笔记">
+<meta property="og:url" content="http://yoursite.com/2020/02/21/%E7%B2%BE%E8%BF%9B/index.html">
 <meta property="og:site_name" content="一个放笔记的地方">
-<meta property="og:description" content="题目要求实际上很简单 一看就会 1234输入: &#39;a&#39;输出: &#39;A&#39;输入: &#39;b&#39;输出: &#39;B&#39;">
+<meta property="og:description" content="在家里抽了几天把很早一直想看的一本书《精进：如何成为很厉害的人看完了》">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/images/LintCode_145/firstCode.png">
-<meta property="og:image" content="http://yoursite.com/images/LintCode_145/secondCode.png">
-<meta property="article:published_time" content="2020-01-28T13:04:19.000Z">
-<meta property="article:modified_time" content="2020-01-29T03:46:35.828Z">
+<meta property="og:image" content="http://yoursite.com/images/%E7%B2%BE%E8%BF%9B/1.png">
+<meta property="article:published_time" content="2020-02-21T12:07:08.000Z">
+<meta property="article:modified_time" content="2020-02-21T12:47:40.126Z">
 <meta property="article:author" content="Apolinz">
-<meta property="article:tag" content="LintCode">
+<meta property="article:tag" content="读书笔记">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/LintCode_145/firstCode.png">
+<meta name="twitter:image" content="http://yoursite.com/images/%E7%B2%BE%E8%BF%9B/1.png">
   
     <link rel="alternative" href="/atom.xml" title="一个放笔记的地方" type="application/atom+xml">
   
@@ -132,41 +131,44 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-LintCode-145" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-精进" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      大小写转换
+      《精进》读书笔记
     </h1>
   
 
         
-        <a href="/2020/01/28/LintCode-145/" class="archive-article-date">
-  	<time datetime="2020-01-28T13:04:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-28</time>
+        <a href="/2020/02/21/%E7%B2%BE%E8%BF%9B/" class="archive-article-date">
+  	<time datetime="2020-02-21T12:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>实际上很简单 一看就会</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &#39;a&#39;</span><br><span class="line">输出: &#39;A&#39;</span><br><span class="line">输入: &#39;b&#39;</span><br><span class="line">输出: &#39;B&#39;</span><br></pre></td></tr></table></figure>
-
+        <p>在家里抽了几天把很早一直想看的一本书《精进：如何成为很厉害的人看完了》</p>
 <a id="more"></a>
 
-<h1 id="那么发生了什么"><a href="#那么发生了什么" class="headerlink" title="那么发生了什么"></a>那么发生了什么</h1><p>刚刚开始写的时候用的是cpp的老思路，先把输入的字符转换成为ascii码，之后减去32就可以了<br>代码如下：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param character: a character</span></span><br><span class="line"><span class="string">    @return: a character</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowercaseToUppercase</span><span class="params">(self, character)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        <span class="keyword">return</span> chr(ord(character) - <span class="number">32</span>)</span><br></pre></td></tr></table></figure>
-<p>但是结果惨不忍睹<br><img src="/images/LintCode_145/firstCode.png" alt="只打败了3.2%"><br>之后想了想用一句话实现</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param character: a character</span></span><br><span class="line"><span class="string">    @return: a character</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">lowercaseToUppercase</span><span class="params">(self, character)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        <span class="keyword">return</span> character.upper()</span><br></pre></td></tr></table></figure>
-<p>第二次的结果就很靓仔<br><img src="/images/LintCode_145/secondCode.png" alt="100% beat!"></p>
-<h1 id="那么…-为什么？"><a href="#那么…-为什么？" class="headerlink" title="那么….为什么？"></a>那么….为什么？</h1><p>找了一下并没有找到很详细的答案，下面是我的猜想：<br>对于第一种解法 解法中的核心是</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> chr(ord(character) - <span class="number">32</span>)</span><br></pre></td></tr></table></figure>
-<p>其中运用到三个过程：<br>求ascii码–移位运算–输出结果<br>对于第二种，其中的核心方法是：</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">return</span> character.upper()</span><br></pre></td></tr></table></figure>
-<p>可能采用了内建的dict？</p>
+<h1 id="时间之尺"><a href="#时间之尺" class="headerlink" title="时间之尺"></a>时间之尺</h1><p>在第一章中 作者主要讲了人如何对待时间的观念，其中另类的时间观令我印象深刻。<br>作者在书中首先是提出了“从活在完全的当下延伸至未来”<br>什么意思呢？也就是说 人生中并不存在所谓的“影响重大的选择”，而所谓的影响整个人生的选择，比如中考高考报考专业，实际上都是自己在每个“现在”当中选择的结果<br>而更加重要的是，在这种选择结果当中，实际上这种结果可以被你今后的“现在”中的一点一滴的选择扭转。<br>仔细想想确实是这样，就算是高考这种上高中以前家长说“高考考不上就完蛋了”的这种想法实际上经历过了高考和几年的大学生活之后实际上心里清楚明白的很，并不具有那么大的影响力，更不可能“决定你的整个人生”</p>
+<p>在其中作者提到了一个面对时间的正常态度”郑重”<br>也就是像孩子一样认真的面对时间，尊重时间，时间也会自然而然地尊重你<br>或许就是像某句话说的“认真的活在每一个今天，用力的生活”</p>
+<p>之后作者提到了思考未来与回顾过去，思考未来要怎么思考？其中有一句话让我印象深刻</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">思考未来要以每个五年为维度，因为五年足够长，不像两年三年那样可以看到结果，也不想十年那样充满过多的未知</span><br></pre></td></tr></table></figure>
+<p>从现在出发，思考未来<br>同样，思考过去，也是要从现在出发</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">过去发生的事情对你产生了什么样的影响？</span><br><span class="line">回顾（复盘）你曾经做过的事情，有哪些地方可以做的尽善尽美而你没有做？</span><br><span class="line">复盘你曾经干过的事情，有哪些事情推动了你产生了进步，而哪些事情可以从中获取经验教训</span><br><span class="line">对比曾经干过的事情，你能力的边界在哪里？</span><br></pre></td></tr></table></figure>
+<p>当然，时间不是一成不变的，要用不同的时间观去应对不同的场景</p>
+<h1 id="有关选择"><a href="#有关选择" class="headerlink" title="有关选择"></a>有关选择</h1><p>作者提到了一个很重要的误区，就是“舒适圈满足”<br>即人在做出选择时，常常会选择刚刚好够到自己满意度极限的选择，而不是对自己最好的选择<br>如何做出对自己最好的选择？方法很简单，独立思考、调查，复盘曾经发生的、展望将要发生的</p>
+<p>选择当中也存在一个误区，叫做隐含假设。<br>常见的隐含假设诸如“没考上好学校一辈子就毁了” “每个人的大学专业与自己今后的工作相挂钩” “大学期间不谈恋爱就很难找到真爱”诸如此类<br>但是如果摆在明面上，隐含假设根本禁不起推敲，只是人们的主观成见罢了。</p>
+<p>在有关选择的最后，有一种东西叫做“最小原型”<br>这是创业里面的概念，同软件开发工程中的“螺旋模型”一样<br>就是先做出一个具有核心功能的模型，在市场上推广，根据市场的反映不断地改进这个产品<br>人也是同样的道理，不断迭代修正才是精进的核心。</p>
+<h1 id="行动"><a href="#行动" class="headerlink" title="行动"></a>行动</h1><p>行动这一章实际上非常简单，就叙述了两个主要观点：立刻行动与分解任务<br>而在书中，对分解任务提出了高要求。<br>一般人分解任务，是按照任务所属分的，就比如做ppt,写word文档这一类的。<br>而在任务的切换过程中，会产生“转换损耗”，就比如做完数学再做语文，大脑的思路还是沉浸在数学的理性当中，这个时候转换，就会产生思考能力/意志力的“转换损耗”<br>通过将任务在逻辑上分层，就可以避免这种损耗的过多发生<br>就比如拿上面两个任务来举例<br>可以把“构思” “写字” “配图”来分，这样虽然只做完了“构思”，但是实际上两个任务的脑力活动部分已经完成了</p>
+<h1 id="学习-amp-努力"><a href="#学习-amp-努力" class="headerlink" title="学习&amp;努力"></a>学习&amp;努力</h1><p>在学习这一章实际上也就寥寥数语能够概括，因为讲的东西实在太多太多了讲不完<br>即“技能学习”与“挑战学习”<br>学习的一切终点是技能、学习的最快进步途径，是边做边学，在你舒适区的边界学习</p>
+<p>而学习过程中的努力并不是意志力的比拼，而是对资源的统筹安排与策略</p>
+<p><img src="/images/%E7%B2%BE%E8%BF%9B/1.png" alt=" "></p>
+<p>共勉</p>
 
       
 
@@ -180,7 +182,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
         		</li>
       		
 		</ul>
@@ -236,7 +238,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/01/28/LintCode-145/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/21/%E7%B2%BE%E8%BF%9B/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -250,18 +252,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/09/LintCode-283/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          比较大小数
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/01/27/LintCode_8/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">旋转字符串</div>
+    <a href="/2020/02/19/pygameAnimeAndCamera/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pygame做的简单程序&amp;&amp;三维向量与相机景深</div>
       <i class="icon-circle-right"></i>
     </a>
   
