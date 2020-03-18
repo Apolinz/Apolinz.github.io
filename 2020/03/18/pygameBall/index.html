@@ -6,15 +6,23 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>一个放笔记的地方</title>
+  <title>pygame实现小球简单程序 | 一个放笔记的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="一个放笔记的地方">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pygame实现小球简单程序">
+<meta property="og:url" content="http://yoursite.com/2020/03/18/pygameBall/index.html">
 <meta property="og:site_name" content="一个放笔记的地方">
+<meta property="og:description" content="代码">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/images/pygameBall/ball.gif">
+<meta property="article:published_time" content="2020-03-18T12:21:09.000Z">
+<meta property="article:modified_time" content="2020-03-18T12:31:15.485Z">
 <meta property="article:author" content="Apolinz">
+<meta property="article:tag" content="pygame">
+<meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/images/pygameBall/ball.gif">
   
     <link rel="alternative" href="/atom.xml" title="一个放笔记的地方" type="application/atom+xml">
   
@@ -124,16 +132,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-pygameBall" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-pygameBall" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/18/pygameBall/">pygame实现小球简单程序</a>
+    <h1 class="article-title" itemprop="name">
+      pygame实现小球简单程序
     </h1>
   
 
@@ -146,10 +152,13 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1>
-        
-          <a class="article-more-a" href="/2020/03/18/pygameBall/#more">查看全部 >></a>
-        
+        <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><a id="more"></a>
+<p>Talk is cheap,show me the Code</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io, base64</span><br><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">from</span> pygame.locals <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span><span class="params">(pygame.sprite.Sprite)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, color, initial_position)</span>:</span></span><br><span class="line">        pygame.sprite.Sprite.__init__(self)</span><br><span class="line">        ball_file = io.BytesIO(base64.b64decode(</span><br><span class="line"><span class="string">"""iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ</span></span><br><span class="line"><span class="string">bWFnZVJlYWR5ccllPAAABBJJREFUeNqsVj2PG1UUvfPp8XictXfHa+9mlyJCNEQRWiToqACJAgGC</span></span><br><span class="line"><span class="string">LqJNlQZR0IFEj8RPSJkGGooUpEWJkGhR0tAAElI2tsfjjxnPjIdz7oyDF2wSUK72yN43793z7rkf</span></span><br><span class="line"><span class="string">Y8N2HFmbbVliGIYiyzIpy1Isy3oHeMswzLOyXJ2tVit9VhTFAxz5Cfge+A7IZIcZmySObQudwIE0</span></span><br><span class="line"><span class="string">veanraB1w/O8l5x6D9eXy6UkSaJYLBa6BvsNuAV8uY3sCQlvX4LANM0Xw/Dgdhj2Xm02m+K6LqPR</span></span><br><span class="line"><span class="string">PXmeS5qmMp/PZTabyXQ6lclkosS1/QJcB+5vkthrAkoAuc4uHx//0B8MvCAIxG/5jEg0kpIkmcwX</span></span><br><span class="line"><span class="string">icTxBIhlHWEURXoedgW4B3wIfHuBJM9yMQ3j5PTk5N7g6MjtdrrS3e9Ku90GUUvc2hkdMYJx5Ivn</span></span><br><span class="line"><span class="string">NRC19UReRlRLR/sGeB34UUkMJBcJlcHg6K4SdDvS7/el1+tJp7MnQdCWRqMhDGWZLmWCCFog9rBm</span></span><br><span class="line"><span class="string">GBYc50rOKON4uqkSC+IQSC3moeX7N09PX/i4AwLkAoQDxeFhHziU8CCUzt6e+EFLc2QaJi4mFQHy</span></span><br><span class="line"><span class="string">kQLZMpME+WJF1sabdYA7Nq4jQbv9OZPs+75cgkSMYH9/X6PhJ9dpTLjruFLkBRyjACBd1BoLzzY8</span></span><br><span class="line"><span class="string">T3O0IRntJvCZDXsTTnq262CzrzmgRHu4+QEIQhAxNzRWU1mTxfjOwvBIAOlIYNnWtja5bqM33mN/</span></span><br><span class="line"><span class="string">sBEdx9bNPOQ1PWlqZJdAFKoMrEI6R+9gj6t7cUl1zjKnjFvsfaybr1Uqlv94ypXSKCud+aefpezs</span></span><br><span class="line"><span class="string">7O3LL9s4c5U65gCrhGDDpUkqyWIuU1STweNlJRe7nAlmA+ZaVbnmiD4KFNEWC+3VqjB5YImDdMA+</span></span><br><span class="line"><span class="string">YKONx2OVgxefojRL8CzmCxkOhxLhWYy+mGIvz6RKmv096X91PErP4Byazapbs3vZB45bVQqTzBzQ</span></span><br><span class="line"><span class="string">kjQBQSTnjx7JcDTCRSLkKNY9SbKACsttHKZdrIqHILnGCNhoDU0qG83U5mNUVTOKShRPYo3m8fAc</span></span><br><span class="line"><span class="string">nT/S/3mWFy2KrXKNOFbuI+Rr1FvLsB731Ho2m2pU7I1Sx8pSHTLaESIZjob6nfso2w77mSR3IMsN</span></span><br><span class="line"><span class="string">zh4mmLOIBAkO6fjAgESdV1MYiV4kiUZHRDjD3E0Qza580D+rjsUdAQEj4fRl8wUkqBttPeo5RlJI</span></span><br><span class="line"><span class="string">uB71jIASc8D+i4W8IoX8CviC5cuI+JlgpLsgcF1ng6RQyaoX1oWX1i67DTxe9w+9/EHW9VOrngCW</span></span><br><span class="line"><span class="string">ZfNFpmvVWOfUzZ/mfG0HwHBz4ZV1kz8nvLuL+YPnRPDJ00J8A/j9fzrnW+sjeUbjbP8amDyj86z+</span></span><br><span class="line"><span class="string">tXL5PwzOC4njj4K3gavA8cazczYacLd+p/+6y8mfAgwAsRuLfp/zVLMAAAAASUVORK5CYII="""</span>))</span><br><span class="line">        self.image = pygame.image.load(ball_file, <span class="string">'file'</span>).convert_alpha()</span><br><span class="line">        self.rect = self.image.fill(color, <span class="literal">None</span>, BLEND_ADD)</span><br><span class="line">        self.rect.topleft = initial_position</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoveBall</span><span class="params">(Ball)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, color, initial_position, speed, border)</span>:</span></span><br><span class="line">        super(MoveBall, self).__init__(color, initial_position)</span><br><span class="line">        self.speed = speed</span><br><span class="line">        self.border = border</span><br><span class="line">        self.update_time = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, current_time)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.update_time &lt; current_time:</span><br><span class="line">            <span class="keyword">if</span> self.rect.left &lt; <span class="number">0</span> <span class="keyword">or</span> self.rect.left &gt; self.border[<span class="number">0</span>] - self.rect.w:</span><br><span class="line">                self.speed[<span class="number">0</span>] *= <span class="number">-1</span></span><br><span class="line">            <span class="keyword">if</span> self.rect.top &lt; <span class="number">0</span> <span class="keyword">or</span> self.rect.top &gt; self.border[<span class="number">1</span>] - self.rect.h:</span><br><span class="line">                self.speed[<span class="number">1</span>] *= <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">            self.rect.x, self.rect.y = self.rect.x + self.speed[<span class="number">0</span>], self.rect.y + self.speed[<span class="number">1</span>]</span><br><span class="line">            self.update_time = current_time + <span class="number">10</span></span><br><span class="line"></span><br><span class="line">pygame.init()</span><br><span class="line">screen = pygame.display.set_mode([<span class="number">350</span>, <span class="number">350</span>])</span><br><span class="line"></span><br><span class="line">balls = []</span><br><span class="line"><span class="keyword">for</span> color, location, speed <span class="keyword">in</span> [([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">50</span>, <span class="number">50</span>], [<span class="number">2</span>,<span class="number">3</span>]),</span><br><span class="line">                        ([<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>], [<span class="number">100</span>, <span class="number">100</span>], [<span class="number">3</span>,<span class="number">2</span>]),</span><br><span class="line">                        ([<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>], [<span class="number">150</span>, <span class="number">150</span>], [<span class="number">4</span>,<span class="number">3</span>])]:</span><br><span class="line">    balls.append(MoveBall(color, location, speed, (<span class="number">350</span>, <span class="number">350</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> pygame.event.poll().type == QUIT: <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    screen.fill((<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,))</span><br><span class="line">    current_time = pygame.time.get_ticks()</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> balls:</span><br><span class="line">        b.update(current_time)</span><br><span class="line">        screen.blit(b.image, b.rect)</span><br><span class="line">    pygame.display.update()</span><br></pre></td></tr></table></figure>
+
+<p><img src="/images/pygameBall/ball.gif" alt=" "></p>
+<p>代码还是很简单，亮点在于使用了base64加载图片</p>
+
       
 
       
@@ -177,10 +186,73 @@
       
 
       
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/18/pygameBall/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+  
+    <a href="/2020/03/14/DrawBoardPython/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python绘板程序</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -200,511 +272,14 @@
 
 
 
-
   
-    <article id="post-DrawBoardPython" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/03/14/DrawBoardPython/">python绘板程序</a>
-    </h1>
   
 
-        
-        <a href="/2020/03/14/DrawBoardPython/" class="archive-article-date">
-  	<time datetime="2020-03-14T02:51:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-14</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于图像绘画的采样技巧"><a href="#关于图像绘画的采样技巧" class="headerlink" title="关于图像绘画的采样技巧"></a>关于图像绘画的采样技巧</h1>
-        
-          <a class="article-more-a" href="/2020/03/14/DrawBoardPython/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pygame</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-精进" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/21/%E7%B2%BE%E8%BF%9B/">《精进》读书笔记</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/21/%E7%B2%BE%E8%BF%9B/" class="archive-article-date">
-  	<time datetime="2020-02-21T12:07:08.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-21</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>在家里抽了几天把很早一直想看的一本书《精进：如何成为很厉害的人看完了》</p>
-        
-          <a class="article-more-a" href="/2020/02/21/%E7%B2%BE%E8%BF%9B/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">读书笔记</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pygameAnimeAndCamera" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/19/pygameAnimeAndCamera/">pygame做的简单程序&amp;&amp;三维向量与相机景深</a>
-    </h1>
   
 
-        
-        <a href="/2020/02/19/pygameAnimeAndCamera/" class="archive-article-date">
-  	<time datetime="2020-02-19T09:32:44.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-19</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="pygame画星星"><a href="#pygame画星星" class="headerlink" title="pygame画星星"></a>pygame画星星</h1>
-        
-          <a class="article-more-a" href="/2020/02/19/pygameAnimeAndCamera/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-pygameVector" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/13/pygameVector/">&#39;python实现vector基础数学库与pygame基础动画&#39;</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/13/pygameVector/" class="archive-article-date">
-  	<time datetime="2020-02-13T06:59:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="关于向量"><a href="#关于向量" class="headerlink" title="关于向量"></a>关于向量</h1><p>向量是个什么东西其实很简单了，高中数学都学过就不再赘述抄书，重要的是我从我写这些代码中学到了什么。</p>
-        
-          <a class="article-more-a" href="/2020/02/13/pygameVector/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pygame</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LintCode-283" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/02/09/LintCode-283/">比较大小数</a>
-    </h1>
-  
-
-        
-        <a href="/2020/02/09/LintCode-283/" class="archive-article-date">
-  	<time datetime="2020-02-09T12:50:16.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-09</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="title"><a href="#title" class="headerlink" title="title"></a>title</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Given 3 integers, return the max of them.</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/02/09/LintCode-283/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LintCode-145" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/28/LintCode-145/">大小写转换</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/28/LintCode-145/" class="archive-article-date">
-  	<time datetime="2020-01-28T13:04:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-28</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>实际上很简单 一看就会</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">输入: &#39;a&#39;</span><br><span class="line">输出: &#39;A&#39;</span><br><span class="line">输入: &#39;b&#39;</span><br><span class="line">输出: &#39;B&#39;</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/01/28/LintCode-145/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-LintCode_8" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2020/01/27/LintCode_8/">旋转字符串</a>
-    </h1>
-  
-
-        
-        <a href="/2020/01/27/LintCode_8/" class="archive-article-date">
-  	<time datetime="2020-01-27T01:50:48.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-01-27</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="题目要求"><a href="#题目要求" class="headerlink" title="题目要求"></a>题目要求</h1><p>给定一个字符串（以字符数组的形式给出）和一个偏移量，根据偏移量原地旋转字符串(从左向右旋转)。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">offset &gt;&#x3D; 0</span><br><span class="line">the length of str &gt;&#x3D; 0</span><br><span class="line">Make changes on the original input data</span><br></pre></td></tr></table></figure>
-        
-          <a class="article-more-a" href="/2020/01/27/LintCode_8/#more">查看全部 >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
   
 
 
@@ -727,8 +302,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
