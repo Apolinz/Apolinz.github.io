@@ -6,23 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>&#39;python实现vector基础数学库与pygame基础动画&#39; | 一个放笔记的地方</title>
+  <title>利用python实现比特分成信息隐藏 | 一个放笔记的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="关于向量向量是个什么东西其实很简单了，高中数学都学过就不再赘述抄书，重要的是我从我写这些代码中学到了什么。">
+  <meta name="description" content="随便讲讲">
 <meta property="og:type" content="article">
-<meta property="og:title" content="&#39;python实现vector基础数学库与pygame基础动画&#39;">
-<meta property="og:url" content="http://yoursite.com/2020/02/13/pygameVector/index.html">
+<meta property="og:title" content="利用python实现比特分成信息隐藏">
+<meta property="og:url" content="http://yoursite.com/2020/03/23/pythonPicHide/index.html">
 <meta property="og:site_name" content="一个放笔记的地方">
-<meta property="og:description" content="关于向量向量是个什么东西其实很简单了，高中数学都学过就不再赘述抄书，重要的是我从我写这些代码中学到了什么。">
+<meta property="og:description" content="随便讲讲">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/images/pygameVector/1.gif">
-<meta property="article:published_time" content="2020-02-13T06:59:41.000Z">
-<meta property="article:modified_time" content="2020-02-13T08:00:00.195Z">
+<meta property="og:image" content="http://yoursite.com/images/pythonPicHide/carrier.JPG">
+<meta property="og:image" content="http://yoursite.com/images/pythonPicHide/secret.JPG">
+<meta property="og:image" content="http://yoursite.com/images/pythonPicHide/secretAndCarrier.JPG">
+<meta property="og:image" content="http://yoursite.com/images/pythonPicHide/rebuild.JPG">
+<meta property="article:published_time" content="2020-03-23T02:13:01.000Z">
+<meta property="article:modified_time" content="2020-03-23T03:37:41.248Z">
 <meta property="article:author" content="Apolinz">
-<meta property="article:tag" content="pygame">
 <meta property="article:tag" content="python">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/pygameVector/1.gif">
+<meta name="twitter:image" content="http://yoursite.com/images/pythonPicHide/carrier.JPG">
   
     <link rel="alternative" href="/atom.xml" title="一个放笔记的地方" type="application/atom+xml">
   
@@ -132,48 +134,34 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-pygameVector" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-pythonPicHide" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      &#39;python实现vector基础数学库与pygame基础动画&#39;
+      利用python实现比特分成信息隐藏
     </h1>
   
 
         
-        <a href="/2020/02/13/pygameVector/" class="archive-article-date">
-  	<time datetime="2020-02-13T06:59:41.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-02-13</time>
+        <a href="/2020/03/23/pythonPicHide/" class="archive-article-date">
+  	<time datetime="2020-03-23T02:13:01.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-23</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="关于向量"><a href="#关于向量" class="headerlink" title="关于向量"></a>关于向量</h1><p>向量是个什么东西其实很简单了，高中数学都学过就不再赘述抄书，重要的是我从我写这些代码中学到了什么。</p>
-<a id="more"></a>
+        <h1 id="随便讲讲"><a href="#随便讲讲" class="headerlink" title="随便讲讲"></a>随便讲讲</h1><a id="more"></a>
+<p>对于8位256灰度图像，如果他的颜色值用二进制表示，那么每个颜色的二进制长度都为8bit<br>通过将不同的位取出来表示成为图像让它实现比特分层</p>
+<h1 id="Talk-is-cheap-Show-me-the-code"><a href="#Talk-is-cheap-Show-me-the-code" class="headerlink" title="Talk is cheap,Show me the code"></a>Talk is cheap,Show me the code</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"><span class="keyword">from</span> PIL <span class="keyword">import</span> Image</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">gainArray</span><span class="params">(image,array)</span>:</span><span class="comment">#比特分层函数，通过不断地取余缩短位数</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">8</span>):</span><br><span class="line">        image[i] = array % <span class="number">2</span></span><br><span class="line">        array = array / <span class="number">2</span></span><br><span class="line">    <span class="keyword">return</span> image,array</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">saveImage</span><span class="params">(name,image,num)</span>:</span></span><br><span class="line">    img = Image.fromarray((image[i] * <span class="number">255</span>).astype(np.uint8))</span><br><span class="line">    img.save(str(name) + str(num) + <span class="string">'.JPG'</span>)</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">rebuild</span><span class="params">(imageList,buildList)</span>:</span> <span class="comment">#逆序重建图像函数</span></span><br><span class="line">    newList = np.array(imageList[<span class="number">0</span>]) * <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> buildList:</span><br><span class="line">        newList += np.array(imageList[i]) * (<span class="number">2</span> ** (i))</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></span><br><span class="line">    secret = Image.open(os.path.join(<span class="string">'.\image'</span>,<span class="string">'secret.JPG'</span>))</span><br><span class="line">    secretArray = np.array(secret)</span><br><span class="line">    secretIMG = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line">    carrier = Image.open(os.path.join(<span class="string">'.\image'</span>,<span class="string">'carrier.JPG'</span>))</span><br><span class="line">    carrierArray = np.array(carrier)</span><br><span class="line">    carrierIMG = [<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>]</span><br><span class="line"></span><br><span class="line">    secretIMG,secretArray = gainArray(secretIMG,secretArray)</span><br><span class="line">    carrierIMG,carrierArray = gainArray(carrierIMG,carrierArray)</span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">4</span>,<span class="number">8</span>):</span><br><span class="line">        carrierIMG[i - <span class="number">4</span>] = secretIMG[i]</span><br><span class="line">    rebuildArray = np.array(carrierIMG[<span class="number">0</span>]) * <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">7</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">        rebuildArray += np.array(carrierIMG[i].astype(np.uint8))</span><br><span class="line">        rebuildArray *= <span class="number">2</span></span><br><span class="line">    img = Image.fromarray(rebuildArray.astype(np.uint8))</span><br><span class="line">    img.show()</span><br><span class="line">    img.save(<span class="string">'secretAndCarrier.JPG'</span>)</span><br><span class="line"></span><br><span class="line">    rebuildArray = np.array(carrierIMG[<span class="number">0</span>]) * <span class="number">0</span></span><br><span class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">3</span>,<span class="number">-1</span>,<span class="number">-1</span>):</span><br><span class="line">        rebuildArray += np.array(carrierIMG[i].astype(np.uint8))</span><br><span class="line">        rebuildArray *= <span class="number">2</span></span><br><span class="line">    img = Image.fromarray(rebuildArray.astype(np.uint8))</span><br><span class="line">    img.show()</span><br><span class="line">    img.save(<span class="string">'rebuild.jpg'</span>)</span><br><span class="line">    <span class="comment"># rebuildArray = np.array(carrierIMG[0]) * 0</span></span><br><span class="line">    <span class="comment"># for i in range(7,-1,-1):</span></span><br><span class="line">    <span class="comment">#     rebuildArray += np.array(carrierIMG[i].astype(np.uint8))</span></span><br><span class="line">    <span class="comment">#     rebuildArray *= 2</span></span><br><span class="line">    <span class="comment"># img = Image.fromarray(rebuildArray.astype(np.uint8))</span></span><br><span class="line">    <span class="comment"># img.show()</span></span><br><span class="line">    </span><br><span class="line">    <span class="comment"># for i in range(4,8):</span></span><br><span class="line">    <span class="comment">#     carrierIMG[i - 4] = secretIMG[i]</span></span><br><span class="line">    <span class="comment"># carrierArray = np.uint8(carrierIMG)</span></span><br><span class="line">    <span class="comment"># img = Image.fromarray(carrierArra)</span></span><br><span class="line">    <span class="comment"># img.show()</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
 
-<p>首先上完整的代码</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> math</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Vector2</span><span class="params">(object)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,x = <span class="number">0.0</span>,y = <span class="number">0.0</span>)</span>:</span></span><br><span class="line">        self.x = x</span><br><span class="line">        self.y = y</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> <span class="string">'(%s,%s)'</span>%(self.x,self.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__add__</span><span class="params">(self,vec)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector2(self.x + vec.x,self.y + vec.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__sub__</span><span class="params">(self,vec)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector2(self.x - vec.x,self.y - vec.y)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__mul__</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector2(self.x * num , self.y * num)</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__truediv__</span><span class="params">(self,num)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector2(self.x/num,self.y/num)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">length</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> math.sqrt(self.x**<span class="number">2</span> + self.y**<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">normalize</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> Vector2(self.x/self.length(),self.y/self.length())</span><br><span class="line"></span><br><span class="line"><span class="meta">    @classmethod</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">pointToVector</span><span class="params">(cls,p1,p2)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> cls(p2[<span class="number">0</span>] - p1[<span class="number">0</span>],p2[<span class="number">1</span>] - p1[<span class="number">1</span>])</span><br><span class="line"></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">()</span>:</span></span><br><span class="line">    A = (<span class="number">10.0</span>,<span class="number">20.0</span>)</span><br><span class="line">    B = (<span class="number">1.0</span>, <span class="number">-2.3</span>)</span><br><span class="line">    C = (<span class="number">0.0</span>,<span class="number">0.0</span>)</span><br><span class="line">    AB = Vector2.pointToVector(A,B)</span><br><span class="line">    AC = Vector2.pointToVector(A,C)</span><br><span class="line">    BC = Vector2.pointToVector(B,C)</span><br><span class="line">    <span class="comment"># print(AB)</span></span><br><span class="line">    <span class="comment"># print('length:',AB.length())</span></span><br><span class="line">    <span class="comment"># print('normalize:',AB.normalize())</span></span><br><span class="line">    <span class="comment"># print('AC + BC:',AC + BC)</span></span><br><span class="line">    <span class="comment"># print('AC - BC:',AC - BC)</span></span><br><span class="line">    <span class="comment"># print('AC * BC:',AC * BC)</span></span><br><span class="line">    print(<span class="string">'AC/2'</span>,AC/<span class="number">2</span>)</span><br><span class="line"></span><br><span class="line"><span class="keyword">if</span> __name__ == <span class="string">"__main__"</span>:</span><br><span class="line">    test()</span><br></pre></td></tr></table></figure>
-<p>关于文件开始的导入math库，主要是为了在计算向量长度的时候使用math.sqrt函数，其余的所有功能均有python的基础标准库实现。</p>
-<h2 id="self参数"><a href="#self参数" class="headerlink" title="self参数"></a>self参数</h2><p>网上有很多文章讲有关于self，但是大部分文章都是抄书，很少有能够真正解释清楚self是个什么东西的</p>
-<p>虽然看了很多文章，解释也有很多的花里胡哨，但是最后还是要翻看官方文档：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Often, the first argument of a method is called self. This is nothing more than a convention: the name self has absolutely no special meaning to Python. Note, however, that by not following the convention your code may be less readable to other Python programmers</span><br></pre></td></tr></table></figure>
-
-<p>也就是说，类方法第一个为self是python程序员们约定俗成的，在python中，self并没有特殊的含义（没有self也是可以运行的），但是没有self可能会降低你程序的可读性。<br>同时官方文档中还提到</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">and it is also conceivable that a class browser program might be written that relies upon such a convention.</span><br></pre></td></tr></table></figure>
-
-<p>也就是说通过这个约定，有些程序员可以编写类似于’类浏览器’样式的程序。</p>
-<h2 id="函数修饰器"><a href="#函数修饰器" class="headerlink" title="函数修饰器"></a>函数修饰器</h2><p>函数修饰器实际上很简单，主要作用就是将不同函数中代码在逻辑上相似的代码段抽离出来，形成独立的代码段，通过函数修饰器提到函数的复用程度</p>
-<p>写个例子怕自己忘记</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(fun)</span>:</span></span><br><span class="line">	fun()</span><br><span class="line">	<span class="keyword">pass</span></span><br><span class="line"></span><br><span class="line"><span class="meta">@test</span></span><br><span class="line"><span class="function"><span class="keyword">def</span> <span class="title">log</span><span class="params">()</span>:</span></span><br><span class="line">	print(<span class="string">"log"</span>)</span><br><span class="line">	<span class="keyword">pass</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="classmethod-amp-amp-staticmethod"><a href="#classmethod-amp-amp-staticmethod" class="headerlink" title="@classmethod &amp;&amp; @staticmethod"></a>@classmethod &amp;&amp; @staticmethod</h3><p>谈到修饰器就得说到类的两个特殊修饰器，@classmethod与@staticmethod</p>
-<p>实际也是一句话就说得清楚 前头是类方法 可以通过类直接调用，后者是静态方法，可以通过类或实例调用</p>
-<h1 id="pygame与向量的简单实现"><a href="#pygame与向量的简单实现" class="headerlink" title="pygame与向量的简单实现"></a>pygame与向量的简单实现</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">import</span> os</span><br><span class="line"><span class="keyword">from</span> pygame.locals <span class="keyword">import</span> *</span><br><span class="line"><span class="keyword">from</span> Vector <span class="keyword">import</span> Vector2</span><br><span class="line"></span><br><span class="line">white = (<span class="number">255</span>,<span class="number">255</span>,<span class="number">255</span>)</span><br><span class="line"></span><br><span class="line">pygame.init()</span><br><span class="line">FPS = <span class="number">60</span></span><br><span class="line">FPSCLOCK = pygame.time.Clock()</span><br><span class="line">SURFACE = pygame.display.set_mode((<span class="number">640</span>,<span class="number">480</span>))</span><br><span class="line">FISHIMG = pygame.image.load(os.path.join(<span class="string">'.\image'</span>,<span class="string">'fish.jpg'</span>)).convert_alpha()</span><br><span class="line">pygame.display.set_caption(<span class="string">'Fish'</span>)</span><br><span class="line"></span><br><span class="line">fishPos = Vector2(<span class="number">0.0</span>,<span class="number">0.0</span>)</span><br><span class="line">heading = Vector2()</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">for</span> event <span class="keyword">in</span> pygame.event.get():</span><br><span class="line">        <span class="keyword">if</span> event.type == QUIT:</span><br><span class="line">            os._exit(<span class="number">0</span>)</span><br><span class="line">    </span><br><span class="line">    SURFACE.fill(white)</span><br><span class="line">    SURFACE.blit(FISHIMG,(fishPos.x,fishPos.y))</span><br><span class="line"></span><br><span class="line">    timePassed = FPSCLOCK.tick()</span><br><span class="line">    timePassedSecond = timePassed/<span class="number">1000000.0</span></span><br><span class="line"></span><br><span class="line">    destination = Vector2(*pygame.mouse.get_pos()) - Vector2(*FISHIMG.get_size()) / <span class="number">2</span></span><br><span class="line">    vectorToMouse = Vector2.pointToVector((fishPos.x,fishPos.y),(destination.x,destination.y))</span><br><span class="line">    vectorToMouse.normalize()</span><br><span class="line"></span><br><span class="line">    heading = heading + (vectorToMouse * <span class="number">0.6</span>)</span><br><span class="line"></span><br><span class="line">    fishPos += heading*timePassedSecond</span><br><span class="line">    pygame.display.update()</span><br></pre></td></tr></table></figure>
-<p><img src="/images/pygameVector/1.gif" alt=" "></p>
+<h1 id="效果图"><a href="#效果图" class="headerlink" title="效果图"></a>效果图</h1><p>载体图像：<br><img src="/images/pythonPicHide/carrier.JPG" alt=" "></p>
+<p>目标隐藏图像：<br><img src="/images/pythonPicHide/secret.JPG" alt=" "></p>
+<p>隐藏图像：<br><img src="/images/pythonPicHide/secretAndCarrier.JPG" alt=" "></p>
+<p>还原图像：<br><img src="/images/pythonPicHide/rebuild.JPG" alt=" "></p>
 
       
 
@@ -186,10 +174,6 @@
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pygame</a>
-        		</li>
-      		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">python</a>
         		</li>
@@ -247,7 +231,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/02/13/pygameVector/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/23/pythonPicHide/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -261,18 +245,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/02/19/pygameAnimeAndCamera/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          pygame做的简单程序&amp;&amp;三维向量与相机景深
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/02/09/LintCode-283/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">比较大小数</div>
+    <a href="/2020/03/18/pygameBall/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">pygame实现小球简单程序</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -390,7 +365,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
+                <a href="javascript:void(0)" class="js-tag color2">python</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -398,7 +373,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">python</a>
+                <a href="javascript:void(0)" class="js-tag color4">LintCode</a>
               </li>
              
               <li class="article-tag-list-item">
