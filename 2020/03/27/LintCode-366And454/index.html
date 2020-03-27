@@ -6,23 +6,27 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>pygame实现小球简单程序 | 一个放笔记的地方</title>
+  <title>斐波那契与简单的魔法方法 | 一个放笔记的地方</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="代码">
+  <meta name="description" content="斐波那契数列的各种解法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="pygame实现小球简单程序">
-<meta property="og:url" content="http://yoursite.com/2020/03/18/pygameBall/index.html">
+<meta property="og:title" content="斐波那契与简单的魔法方法">
+<meta property="og:url" content="http://yoursite.com/2020/03/27/LintCode-366And454/index.html">
 <meta property="og:site_name" content="一个放笔记的地方">
-<meta property="og:description" content="代码">
+<meta property="og:description" content="斐波那契数列的各种解法">
 <meta property="og:locale" content="zh_CN">
-<meta property="og:image" content="http://yoursite.com/images/pygameBall/ball.gif">
-<meta property="article:published_time" content="2020-03-18T12:21:09.000Z">
-<meta property="article:modified_time" content="2020-03-18T12:31:15.485Z">
+<meta property="og:image" content="http://yoursite.com/images/LintCode-366And454/timeout.png">
+<meta property="og:image" content="http://yoursite.com/images/LintCode-366And454/fib1.png">
+<meta property="og:image" content="http://yoursite.com/images/LintCode-366And454/fib2.png">
+<meta property="og:image" content="http://yoursite.com/images/LintCode-366And454/time2.png">
+<meta property="og:image" content="http://yoursite.com/images/LintCode-366And454/timerank.png">
+<meta property="article:published_time" content="2020-03-27T08:22:12.000Z">
+<meta property="article:modified_time" content="2020-03-27T08:59:15.167Z">
 <meta property="article:author" content="Apolinz">
 <meta property="article:tag" content="python">
-<meta property="article:tag" content="pygame">
+<meta property="article:tag" content="LintCode">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:image" content="http://yoursite.com/images/pygameBall/ball.gif">
+<meta name="twitter:image" content="http://yoursite.com/images/LintCode-366And454/timeout.png">
   
     <link rel="alternative" href="/atom.xml" title="一个放笔记的地方" type="application/atom+xml">
   
@@ -132,33 +136,39 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-pygameBall" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-LintCode-366And454" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      pygame实现小球简单程序
+      斐波那契与简单的魔法方法
     </h1>
   
 
         
-        <a href="/2020/03/18/pygameBall/" class="archive-article-date">
-  	<time datetime="2020-03-18T12:21:09.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-18</time>
+        <a href="/2020/03/27/LintCode-366And454/" class="archive-article-date">
+  	<time datetime="2020-03-27T08:22:12.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2020-03-27</time>
 </a>
         
       </header>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><a id="more"></a>
-<p>Talk is cheap,show me the Code</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> io, base64</span><br><span class="line"><span class="keyword">import</span> pygame</span><br><span class="line"><span class="keyword">from</span> pygame.locals <span class="keyword">import</span> *</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Ball</span><span class="params">(pygame.sprite.Sprite)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, color, initial_position)</span>:</span></span><br><span class="line">        pygame.sprite.Sprite.__init__(self)</span><br><span class="line">        ball_file = io.BytesIO(base64.b64decode(</span><br><span class="line"><span class="string">"""iVBORw0KGgoAAAANSUhEUgAAABkAAAAZCAYAAADE6YVjAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJ</span></span><br><span class="line"><span class="string">bWFnZVJlYWR5ccllPAAABBJJREFUeNqsVj2PG1UUvfPp8XictXfHa+9mlyJCNEQRWiToqACJAgGC</span></span><br><span class="line"><span class="string">LqJNlQZR0IFEj8RPSJkGGooUpEWJkGhR0tAAElI2tsfjjxnPjIdz7oyDF2wSUK72yN43793z7rkf</span></span><br><span class="line"><span class="string">Y8N2HFmbbVliGIYiyzIpy1Isy3oHeMswzLOyXJ2tVit9VhTFAxz5Cfge+A7IZIcZmySObQudwIE0</span></span><br><span class="line"><span class="string">veanraB1w/O8l5x6D9eXy6UkSaJYLBa6BvsNuAV8uY3sCQlvX4LANM0Xw/Dgdhj2Xm02m+K6LqPR</span></span><br><span class="line"><span class="string">PXmeS5qmMp/PZTabyXQ6lclkosS1/QJcB+5vkthrAkoAuc4uHx//0B8MvCAIxG/5jEg0kpIkmcwX</span></span><br><span class="line"><span class="string">icTxBIhlHWEURXoedgW4B3wIfHuBJM9yMQ3j5PTk5N7g6MjtdrrS3e9Ku90GUUvc2hkdMYJx5Ivn</span></span><br><span class="line"><span class="string">NRC19UReRlRLR/sGeB34UUkMJBcJlcHg6K4SdDvS7/el1+tJp7MnQdCWRqMhDGWZLmWCCFog9rBm</span></span><br><span class="line"><span class="string">GBYc50rOKON4uqkSC+IQSC3moeX7N09PX/i4AwLkAoQDxeFhHziU8CCUzt6e+EFLc2QaJi4mFQHy</span></span><br><span class="line"><span class="string">kQLZMpME+WJF1sabdYA7Nq4jQbv9OZPs+75cgkSMYH9/X6PhJ9dpTLjruFLkBRyjACBd1BoLzzY8</span></span><br><span class="line"><span class="string">T3O0IRntJvCZDXsTTnq262CzrzmgRHu4+QEIQhAxNzRWU1mTxfjOwvBIAOlIYNnWtja5bqM33mN/</span></span><br><span class="line"><span class="string">sBEdx9bNPOQ1PWlqZJdAFKoMrEI6R+9gj6t7cUl1zjKnjFvsfaybr1Uqlv94ypXSKCud+aefpezs</span></span><br><span class="line"><span class="string">7O3LL9s4c5U65gCrhGDDpUkqyWIuU1STweNlJRe7nAlmA+ZaVbnmiD4KFNEWC+3VqjB5YImDdMA+</span></span><br><span class="line"><span class="string">YKONx2OVgxefojRL8CzmCxkOhxLhWYy+mGIvz6RKmv096X91PErP4Byazapbs3vZB45bVQqTzBzQ</span></span><br><span class="line"><span class="string">kjQBQSTnjx7JcDTCRSLkKNY9SbKACsttHKZdrIqHILnGCNhoDU0qG83U5mNUVTOKShRPYo3m8fAc</span></span><br><span class="line"><span class="string">nT/S/3mWFy2KrXKNOFbuI+Rr1FvLsB731Ho2m2pU7I1Sx8pSHTLaESIZjob6nfso2w77mSR3IMsN</span></span><br><span class="line"><span class="string">zh4mmLOIBAkO6fjAgESdV1MYiV4kiUZHRDjD3E0Qza580D+rjsUdAQEj4fRl8wUkqBttPeo5RlJI</span></span><br><span class="line"><span class="string">uB71jIASc8D+i4W8IoX8CviC5cuI+JlgpLsgcF1ng6RQyaoX1oWX1i67DTxe9w+9/EHW9VOrngCW</span></span><br><span class="line"><span class="string">ZfNFpmvVWOfUzZ/mfG0HwHBz4ZV1kz8nvLuL+YPnRPDJ00J8A/j9fzrnW+sjeUbjbP8amDyj86z+</span></span><br><span class="line"><span class="string">tXL5PwzOC4njj4K3gavA8cazczYacLd+p/+6y8mfAgwAsRuLfp/zVLMAAAAASUVORK5CYII="""</span>))</span><br><span class="line">        self.image = pygame.image.load(ball_file, <span class="string">'file'</span>).convert_alpha()</span><br><span class="line">        self.rect = self.image.fill(color, <span class="literal">None</span>, BLEND_ADD)</span><br><span class="line">        self.rect.topleft = initial_position</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MoveBall</span><span class="params">(Ball)</span>:</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, color, initial_position, speed, border)</span>:</span></span><br><span class="line">        super(MoveBall, self).__init__(color, initial_position)</span><br><span class="line">        self.speed = speed</span><br><span class="line">        self.border = border</span><br><span class="line">        self.update_time = <span class="number">0</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">update</span><span class="params">(self, current_time)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> self.update_time &lt; current_time:</span><br><span class="line">            <span class="keyword">if</span> self.rect.left &lt; <span class="number">0</span> <span class="keyword">or</span> self.rect.left &gt; self.border[<span class="number">0</span>] - self.rect.w:</span><br><span class="line">                self.speed[<span class="number">0</span>] *= <span class="number">-1</span></span><br><span class="line">            <span class="keyword">if</span> self.rect.top &lt; <span class="number">0</span> <span class="keyword">or</span> self.rect.top &gt; self.border[<span class="number">1</span>] - self.rect.h:</span><br><span class="line">                self.speed[<span class="number">1</span>] *= <span class="number">-1</span></span><br><span class="line"></span><br><span class="line">            self.rect.x, self.rect.y = self.rect.x + self.speed[<span class="number">0</span>], self.rect.y + self.speed[<span class="number">1</span>]</span><br><span class="line">            self.update_time = current_time + <span class="number">10</span></span><br><span class="line"></span><br><span class="line">pygame.init()</span><br><span class="line">screen = pygame.display.set_mode([<span class="number">350</span>, <span class="number">350</span>])</span><br><span class="line"></span><br><span class="line">balls = []</span><br><span class="line"><span class="keyword">for</span> color, location, speed <span class="keyword">in</span> [([<span class="number">255</span>, <span class="number">0</span>, <span class="number">0</span>], [<span class="number">50</span>, <span class="number">50</span>], [<span class="number">2</span>,<span class="number">3</span>]),</span><br><span class="line">                        ([<span class="number">0</span>, <span class="number">255</span>, <span class="number">0</span>], [<span class="number">100</span>, <span class="number">100</span>], [<span class="number">3</span>,<span class="number">2</span>]),</span><br><span class="line">                        ([<span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>], [<span class="number">150</span>, <span class="number">150</span>], [<span class="number">4</span>,<span class="number">3</span>])]:</span><br><span class="line">    balls.append(MoveBall(color, location, speed, (<span class="number">350</span>, <span class="number">350</span>)))</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span> <span class="literal">True</span>:</span><br><span class="line">    <span class="keyword">if</span> pygame.event.poll().type == QUIT: <span class="keyword">break</span></span><br><span class="line"></span><br><span class="line">    screen.fill((<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>,))</span><br><span class="line">    current_time = pygame.time.get_ticks()</span><br><span class="line">    <span class="keyword">for</span> b <span class="keyword">in</span> balls:</span><br><span class="line">        b.update(current_time)</span><br><span class="line">        screen.blit(b.image, b.rect)</span><br><span class="line">    pygame.display.update()</span><br></pre></td></tr></table></figure>
-
-<p><img src="/images/pygameBall/ball.gif" alt=" "></p>
-<p>代码还是很简单，亮点在于使用了base64加载图片</p>
-
+        <h1 id="斐波那契数列的各种解法"><a href="#斐波那契数列的各种解法" class="headerlink" title="斐波那契数列的各种解法"></a>斐波那契数列的各种解法</h1><a id="more"></a>
+<p>首先是通常的递归解</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param n: an integer</span></span><br><span class="line"><span class="string">    @return: an ineger f(n)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> n == <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> (self.fibonacci(n - <span class="number">1</span>) + self.fibonacci(n <span class="number">-2</span>))</span><br></pre></td></tr></table></figure>
+<p>实际上就是根据斐波那契数列的通项公式</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">F(n) &#x3D; F(n - 1)+F(n - 2) n &gt; 2</span><br></pre></td></tr></table></figure>
+<p>来写的，但是很不幸，它超时了<br><img src="/images/LintCode-366And454/timeout.png" alt=" "><br>然后是通项公式：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param n: an integer</span></span><br><span class="line"><span class="string">    @return: an ineger f(n)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="keyword">if</span> n &lt;= <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        n -= <span class="number">1</span></span><br><span class="line">        <span class="keyword">return</span> int(<span class="number">1.0</span>/math.sqrt(<span class="number">5</span>)*(pow((<span class="number">1.0</span>+math.sqrt(<span class="number">5</span>))/<span class="number">2</span>, n) -pow((<span class="number">1.0</span>-math.sqrt(<span class="number">5</span>))/<span class="number">2</span>, n)))</span><br></pre></td></tr></table></figure>
+<p>是根据矩阵运算的出来的通项公式，按照道理来说是最快的，因为是单次多项式，复杂度为O(1)<br><img src="/images/LintCode-366And454/fib1.png" alt=" "><br><img src="/images/LintCode-366And454/fib2.png" alt=" "><br>但是<br><img src="/images/LintCode-366And454/time2.png" alt=" "><br>可见python的运算效率真的不怎么样<br>然后就是最简单的三变量交换法</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Solution</span>:</span></span><br><span class="line">    <span class="string">"""</span></span><br><span class="line"><span class="string">    @param n: an integer</span></span><br><span class="line"><span class="string">    @return: an ineger f(n)</span></span><br><span class="line"><span class="string">    """</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">fibonacci</span><span class="params">(self, n)</span>:</span></span><br><span class="line">        <span class="comment"># write your code here</span></span><br><span class="line">        fib1 = <span class="number">0</span></span><br><span class="line">        fib2 = <span class="number">1</span></span><br><span class="line">        swap = <span class="number">0</span></span><br><span class="line">        <span class="keyword">if</span> n == <span class="number">1</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span></span><br><span class="line">        <span class="keyword">elif</span> n == <span class="number">2</span>:</span><br><span class="line">            <span class="keyword">return</span> <span class="number">1</span></span><br><span class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> range(n<span class="number">-2</span>):</span><br><span class="line">            swap = fib1 + fib2</span><br><span class="line">            fib1 = fib2</span><br><span class="line">            fib2 = swap</span><br><span class="line">        <span class="keyword">return</span> fib2</span><br></pre></td></tr></table></figure>
+<p>这个效率反而是三个中间最高的<br><img src="/images/LintCode-366And454/timerank.png" alt=" "></p>
+<h1 id="简单的魔法方法类"><a href="#简单的魔法方法类" class="headerlink" title="简单的魔法方法类"></a>简单的魔法方法类</h1><h2 id="描述"><a href="#描述" class="headerlink" title="描述"></a>描述</h2><p>Implement a Rectangle class which include the following attributes and methods:</p>
+<p>Two public attributes width and height.<br>A constructor which expects two parameters width and height of type int.<br>A method getArea which would calculate the size of the rectangle and return.</p>
+<h2 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Rectangle</span>:</span></span><br><span class="line"></span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">     * Define a constructor which expects two parameters width and height here.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># write your code here</span></span><br><span class="line">    </span><br><span class="line">    <span class="string">'''</span></span><br><span class="line"><span class="string">     * Define a public method `getArea` which can calculate the area of the</span></span><br><span class="line"><span class="string">     * rectangle and return.</span></span><br><span class="line"><span class="string">    '''</span></span><br><span class="line">    <span class="comment"># write your code here</span></span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,width,height)</span>:</span></span><br><span class="line">        self.width = width</span><br><span class="line">        self.height = height</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">def</span> <span class="title">getArea</span><span class="params">(self)</span>:</span></span><br><span class="line">        <span class="keyword">return</span> (self.width * self.height)</span><br></pre></td></tr></table></figure>
       
 
       
@@ -175,7 +185,7 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">pygame</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">LintCode</a>
         		</li>
       		
 		</ul>
@@ -231,7 +241,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/18/pygameBall/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2020/03/27/LintCode-366And454/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -245,18 +255,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2020/03/23/pythonPicHide/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          利用python实现比特分层信息隐藏
-        
-      </div>
-    </a>
   
-  
-    <a href="/2020/03/14/DrawBoardPython/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">python绘板程序</div>
+    <a href="/2020/03/23/pythonPicHide/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">利用python实现比特分层信息隐藏</div>
       <i class="icon-circle-right"></i>
     </a>
   
